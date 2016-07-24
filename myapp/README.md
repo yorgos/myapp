@@ -1,4 +1,5 @@
-# README
+This is my first App.
+It will do this and that.
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
