@@ -1,0 +1,27 @@
+<!-- <p>Find me in app/views/static_pages/contact.html.erb</p> -->
+
+<section class="container anchor" id="contact">
+
+    <header class="contact-header">
+      <h1>Contact</h1>
+    </header><!--End of contact-header-->
+
+    <!--Address Details-->
+    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-12 address">
+      <h3>Contact details</h3>
+      <p class="address-details">
+        <span class="glyphicon glyphicon-envelope"></span> &thinsp; example [at] berlin.com
+        <br>
+        <span class="glyphicon glyphicon-earphone"></span> &thinsp; +49 (0)30 1234 5678
+        <br>
+        <br>
+        <a href="https://www.google.gr/maps/place/Brandenburg+Gate/@52.5162746,13.377704,15z/data=!4m5!3m4!1s0x0:0x26bbfb4e84674c63!8m2!3d52.5162746!4d13.377704">
+        <span class="glyphicon glyphicon glyphicon-map-marker"></span> &thinsp; Brandenburger Gate</a>
+        <p>&thinsp;Pariser Platz<br>&thinsp;10117 Berlin<br>&thinsp;Germany</p>
+      </p>
+
+      <!-- Image-->
+      <%= link_to image_tag("contact.jpg", class: "contact-img"), image_path("contact.jpg"), class: "colorbox" %>
+
+    </div><!--End of address-->
+</section><!--End of section CONTACT-->
