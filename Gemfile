@@ -3,8 +3,9 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -44,5 +45,15 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+# Use sqlite3 as the database for Active Record
+group :development, :test do
+  gem 'sqlite3'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# One popular add-on is a gem that communicates with PostgreSQL databases (pronounced “post-gres-cue-ell”, and often called “Postgres” for short). This is the type of database your Heroku server will be running, so you need to install the gem for your app to query the database. Because this gem is only needed for the Heroku server, we will add the pg gem in the production environment group. Go to your gemfile and add the following code:
+group :production do
+  gem 'pg'
+end
