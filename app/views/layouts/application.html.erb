@@ -1,25 +1,90 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>Flat Tire Berlin</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--Linking CSS from Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!--Linking CSS from local file-->
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+
+    <!--Linking Javascript from local file-->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': true %>
+
+    <!-- Linking Javascript from Bootstrap CDN after we load the local Javascript as the remote requires jquery which is loaded from the local file-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- Including the meta tag that allowes the app to act responsively to mobile phones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
   </head>
 
   <body>
-    <nav>
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
-    </nav>
+    <div id="wrap">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">FLAT TIRE BERLIN</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+              <!--<li class="active"><a href="#">Products<span class="sr-only">(current)</span></a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+               <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Products</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </li> -->
+            <!-- <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form> -->
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">Products</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+              <!-- <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">dropdown one</a></li>
+                  <li><a href="#">dropdown two</a></li>
+                  <li><a href="#">dropdown three</a></li>
+                </ul>
+              </li> -->
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+    </div><!--/wrap-->
 
     <%= yield %>
 
-    <footer>&copy; 2015 Bike Berlin </footer>
+    <footer class="footer" id="footer">
+      <div class="container">
+        <p class="text-muted copyright">&copy; 2016 Bike Berlin GmbH</p>
+      </div>
+    </footer>
+
+
 
   </body>
 </html>
