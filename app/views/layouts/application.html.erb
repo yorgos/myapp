@@ -19,6 +19,9 @@
     <!-- Including the meta tag that allowes the app to act responsively to mobile phones -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Linking google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+
   </head>
 
   <body>
@@ -33,12 +36,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">FLAT TIRE BERLIN</a>
+            <%= link_to "FLAT TIRE BERLIN", static_pages_index_path, class: "navbar-brand" %>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
 
               <!--<li class="active"><a href="#">Products<span class="sr-only">(current)</span></a></li>
               <li><a href="#">About</a></li>
@@ -58,9 +60,9 @@
               <button type="submit" class="btn btn-default">Submit</button>
             </form> -->
             <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to "Products", "products" %></li><!--Instead of <a href="#">Products</a>-->
-              <li><%= link_to "About", "about" %></li> <!--Instead of <a href="#">About</a>-->
-              <li><%= link_to "Contact", "contact" %></li><!--Instead of <a href="#">Contact</a>-->
+              <li><%= link_to "PRODUCTS", products_path, class: "navigation-link" %></li><!--Instead of <a href="#">Products</a>-->
+              <li><%= link_to "ABOUT", static_pages_about_path, class: "navigation-link"%></li> <!--Instead of <a href="#">About</a>-->
+              <li><%= link_to "CONTACT", static_pages_contact_path, class: "navigation-link" %></li><!--Instead of <a href="#">Contact</a>-->
 
               <!-- <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -84,8 +86,6 @@
         <p class="text-muted copyright">&copy; 2016 Bike Berlin GmbH</p>
       </div>
     </footer>
-
-
 
   </body>
 </html>
