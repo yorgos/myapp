@@ -3,6 +3,11 @@
 <div class="container show-product-body">
 
   <%= link_to 'Back', products_path, class:"btn btn-default" %>
+  <br>
+  <p>
+    <strong>Image url:</strong>
+    <%= @product.image_url %>
+  </p>
 
   <p>
     <strong>Name:</strong>
@@ -10,8 +15,8 @@
   </p>
 
   <p>
-    <strong>Description:</strong>
-    <%= @product.description %>
+    <strong>Price:</strong>
+    <%= @product.price %>
   </p>
 
   <p>
@@ -20,9 +25,11 @@
   </p>
 
   <p>
-    <strong>Image url:</strong>
-    <%= @product.image_url %>
+    <strong>Description:</strong>
+    <%= @product.description %>
   </p>
+
+  <br>
 
   <%= link_to 'Edit', edit_product_path(@product), class:"btn btn-default"%>
 
