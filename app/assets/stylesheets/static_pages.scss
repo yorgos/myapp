@@ -2,53 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 /* ================= TYPOGRAPHY ================================*/
 * {
   font-family: Questrial, Futura, Helvetica, Arial, Sans-Serif;
 }
 
 /* ==================== BODY & HEADERS =========================*/
-html {
-  min-height: 100%;
-}
 
 body {
-  height: 100%;
-  padding-top: 60px;
+  // height: 100%;
+  padding-top: 50px;
+  margin:0;
 }
 
-h1, h2 {
+h1, h2, h3{
   text-align: center;
-}
-
-
-
-/* ===================== FOOTER ================================*/
-
-/* Wrapper for page content to push down footer */
-#wrap {
-  width: 100%;
-  min-height: 100%;
-  /* Negative indent footer by its height */
-  margin: 0 auto -60px;
-  /* Pad bottom by footer height */
-  padding: 0 0 60px;
-}
-
-/* Fixed height of the footer */
-footer {
-  position: absolute;
-  left:0;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  background-color: #f5f5f5;
-}
-
-/* Footer text */
-footer p {
-  margin: 20px 0;
 }
 
 /* ===================== NAVBAR ================================*/
@@ -75,4 +43,99 @@ footer p {
 /* ===================== CONTACT ================================*/
 .contact-img {
   margin-bottom: 5%;
+}
+
+.address h3{
+  text-align: left;
+}
+
+.address-details {
+  margin-left: 0;
+}
+/* ===================== FOOTER ================================*/
+
+footer {
+  background-color: #f5f5f5;
+  /* box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12); */
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  padding: 3% 0;
+}
+
+footer .footer-left p {
+  color:  #8f9296;
+  font-size: 93.8%;
+  margin: 0;
+}
+
+footer p.footer-links {
+  font-size: 118.8%;
+  /* color:  #ffffff; */
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+footer p.footer-links a {
+  display: inline-block;
+  line-height: 1.8;
+  text-decoration: none;
+  color: gray;
+  margin-right: 1%;
+}
+
+/* pseudoclass for hover left*/
+.footer-links a:hover {
+  background-color: transparent;
+  color: black;
+  transition: color 200ms;
+ }
+
+/*
+footer .footer-right {
+  float: right;
+  margin-top: 6px;
+  max-width: 180px;
+  font-size: 118.8%
+}
+*/
+
+/*
+footer .footer-right a{
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  //background-color:  #33383b;
+  /* border-radius: 2px;
+  font-size: 150%;
+  color: #fff;
+  text-align: center;
+  /* line-height: 35px;
+  /* margin-left: 3px;
+}
+*/
+
+/*
+.fa {
+  font-size: 150%;
+  color: #fff;
+}
+*/
+
+/* Footer Media Queries */
+@media (max-width: 1000px) {
+
+  footer .footer-left,
+//footer .footer-right
+  {text-align: center;
+  }
+/*
+  footer .footer-right {
+    float: none;
+    margin: 0 auto 20px;
+  }
+*/
+  footer .footer-left p.footer-links {
+    line-height: 1.8;
+  }
 }

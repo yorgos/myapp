@@ -4,6 +4,9 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    # Here we create an instance variable @products
+    # and we asign to it all the contents of the array Product which is in the model
+    # in order to be able to reference it in the dynamic html views
     @products = Product.all
   end
 

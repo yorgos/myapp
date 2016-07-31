@@ -13,6 +13,7 @@
   </thead>
 
   <tbody>
+    <!--Goes to the index method of the products controller and takes the instance variable @products where we have assigned all the contents of the product array -->
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
