@@ -5,35 +5,34 @@
     <h1>Products</h1>
   </header><!--End of contact-header-->
 
-<div class="container product-table">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th class="table-header">Name</th>
-        <th class="table-header">Description</th>
-        <th class="table-header">Colour</th>
-        <th class="table-header">Image url</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
 
-    <tbody>
+  <div class="container">
+
+    <div class="row">
       <!--Goes to the index method of the products controller and takes the instance variable @products where we have assigned all the contents of the product array -->
       <% @products.each do |product| %>
-        <tr>
-          <td><%= product.name %></td>
-          <td><%= product.description %></td>
-          <td><%= product.colour %></td>
-          <td><%= product.image_url %></td>
-          <td><%= link_to 'Show', product, class:"btn btn-info"%></td>
-          <td><%= link_to 'Edit', edit_product_path(product), class:"btn btn-warning" %></td>
-          <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger"%></td>
-        </tr>
+        <div class="col-sm-2 col-md-4">
+          <%= image_tag(product.image_url, class: "img-responsive") %>
+          <h2><%= product.name %></h2>
+          <p><%= product.colour %></p>
+          <p><%= product.description %></p>
+          <p>
+            <%= link_to 'Show', product, class:"btn btn-info"%>
+            <%= link_to 'Edit', edit_product_path(product), class:"btn btn-warning" %>
+            <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger"%>
+          </p>
+        </div>
       <% end %>
-    </tbody>
-  </table>
+    </div><!-- /row -->
 
-  <br>
-  <%= link_to 'Create New Product', new_product_path, class:"btn btn-default"%>
+    <br>
+    <p>
+      <%= link_to 'Create New Product', new_product_path, class:"btn btn-default"%>
+    </p>
+    <br>
+
+  </div><!-- /container -->
+
+
 
 </div><!--/ container-->
