@@ -1,0 +1,14 @@
+<div class="col-sm-2 col-md-4">
+  <%= image_tag(product.image_url, class: "img-responsive") %>
+  <h2><%= product.name %></h2>
+  <h3> &euro; <%= product.price %></h3>
+  <p><%= product.colour %></p>
+  <p><%= product.description %></p>
+
+  <p>
+    <%= link_to 'Show', product, class:"btn btn-info"%>
+    <%= link_to 'Edit', edit_product_path(product), class:"btn btn-warning" %>
+    <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger"%>
+  </p>
+
+</div>

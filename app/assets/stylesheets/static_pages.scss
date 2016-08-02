@@ -36,9 +36,20 @@ h1, h2, h3 {
 /* ======================= HOME ================================*/
 .home-img {
   /* img-responsive class of Bootstrap takes care of the center alignment*/
-  margin:0 auto;
+  margin: 0 auto;
 }
 
+
+/* ==================== LANDING PAGE ============================*/
+
+.carousel-caption h1 {
+  color: gray;
+  text-shadow: 0;
+}
+
+.carousel-caption {
+  margin-bottom: 80%;
+}
 
 /* ===================== CONTACT ================================*/
 .contact-img {

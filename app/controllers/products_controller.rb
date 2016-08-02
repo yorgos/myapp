@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    # Here I need to set a variable @product_image = Product.image_url
   end
 
   # GET /products/new

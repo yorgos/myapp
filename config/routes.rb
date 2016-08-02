@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'static_pages/about'
   get 'static_pages/contact'
 
-  root "static_pages#index" #syntax = root "controller#view"
+  root "static_pages#landing_page" #syntax = root "controller#view"
 
   resources :products
   resources :orders, only: [:index, :show, :create, :destroy]
