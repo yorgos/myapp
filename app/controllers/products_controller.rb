@@ -13,7 +13,6 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    # Here I need to set a variable @product_image = Product.image_url
   end
 
   # GET /products/new
@@ -60,7 +59,8 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      # was redirect_to products_url
+      format.html { redirect_to "https://en.wikipedia.org/wiki/Bicycle", notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

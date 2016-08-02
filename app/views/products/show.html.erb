@@ -4,10 +4,9 @@
 
   <%= link_to 'Back', products_path, class:"btn btn-default" %>
   <br>
-  <p>
-    <strong>Image url:</strong>
-    <%= @product.image_url %>
-  </p>
+  <div>
+    <%= image_tag(@product.image_url, class: "img-responsive") %>
+  </div>
 
   <p>
     <strong>Name:</strong>
