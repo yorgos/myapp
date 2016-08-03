@@ -7,7 +7,22 @@ class ProductsController < ApplicationController
     # Here we create an instance variable @products
     # and we asign to it all the contents of the array Product which is in the model
     # in order to be able to reference it in the dynamic html views
-    @products = Product.all
+    # @products = Product.all
+
+    # Conditional search. DEpending on the environment where the search is applied at (production/development) we use a diferent SQL maching method
+    # the LIKE sql method is case sensitive in the development environment
+    # the ILIKE sql method is not case sensitive and it is going to be used for the production environment
+    # If there is no search then all the products are going to be displayed.
+    if Rails.env.development? && params[:q]
+      search_term = params[:q]
+      @products = Product.where("name LIKE ?", "%#{search_term}%")
+    elsif Rails.env.production? && params[:q]
+      search_term = params[:q]
+      @products = Product.where("name ILIKE ?", "%#{search_term}%")
+    else
+      @products = Product.all
+    end
+
   end
 
   # GET /products/1
@@ -59,8 +74,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      # was redirect_to products_url
-      format.html { redirect_to "https://en.wikipedia.org/wiki/Bicycle", notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to redirect_to products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

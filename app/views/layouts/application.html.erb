@@ -77,6 +77,15 @@
                 </ul>
               </li> -->
             </ul>
+
+              <%= form_tag("/products", method: "get", class:"navbar-form navbar-right") do %>
+                <div class="form-group">
+                  <!--<%= label_tag(:q, "Search for") %> -->
+                  <%= text_field_tag :q, nil, placeholder:"Search for..." %>
+                  <%= submit_tag("Search", class: "btn btn-default") %>
+                </div>
+              <% end %>
+
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
