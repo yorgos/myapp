@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     # in order to be able to reference it in the dynamic html views
     # @products = Product.all
 
-    # Conditional search. DEpending on the environment where the search is applied at (production/development) we use a diferent SQL maching method
+    # Conditional search. Depending on the environment where the search is applied at (production/development) we use a diferent SQL maching method
     # the LIKE sql method is case sensitive in the development environment
     # the ILIKE sql method is not case sensitive and it is going to be used for the production environment
     # If there is no search then all the products are going to be displayed.

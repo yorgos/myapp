@@ -1,0 +1,22 @@
+<section class="container anchor" id="thank-you">
+
+  <header class="thank-you-header">
+    <h1>Thank you!</h1>
+  </header><!--End of contact-header-->
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="col-md-6 col-sm-12">
+      <%=image_tag("received.png", alt: "Your message was sent", class:"img-responsive")%>
+      </div>
+
+      <div class="col-md-6 col-sm-12">
+        <h2>Your message was sent. We will get back to you as soon as possible.</h2>
+        <!--<h3>Keep pedaling...</h3> -->
+        <%= link_to 'Back to our Products', products_url, class: "btn btn-default"%>
+      </div>
+
+    </div><!-- / panel-body -->
+  </div><!-- / panel -->
+
+</section>
