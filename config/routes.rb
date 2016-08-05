@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :users
   # A resource route maps a number of related requests to actions in a single controller
   resources :products
   resources :orders, only: [:index, :show, :create, :destroy]
