@@ -1,14 +1,23 @@
-<p id="notice"><%= notice %></p>
+<!-- Notice alerady included in the application.html.erb -->
+<!-- <p id="notice"><%= notice %></p> -->
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class ="col-lg-6 col-md-6 col-sm-10 col-sx-12">
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+      <p>
+        <strong>First name:</strong>
+        <%= @user.first_name %>
+      </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      <p>
+        <strong>Last name:</strong>
+        <%= @user.last_name %>
+      </p>
+
+      <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-default"%>
+      <%= link_to 'Back', users_path, class:"btn btn-default"%>
+
+    </div>
+  </div>
+</div>

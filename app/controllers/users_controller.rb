@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  # Add before_filter :authenticate_user! above the load_and_authorize_resource line to make sure the user is signed in before trying to access the users_controller
+  before_filter :authenticate_user!
+
+  # Helper method that comes with the cancancan gem. The CanCan gem includes a helper method called load_and_authorize_resource which will find the user, set the @user variable, and check their abilities to make sure they are authorized to perform that action.
+  load_and_authorize_resource
+
   # GET /users
   # GET /users.json
   def index

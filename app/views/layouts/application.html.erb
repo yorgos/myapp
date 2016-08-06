@@ -31,6 +31,7 @@
   <body>
 
     <div id="wrap">
+
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -106,8 +107,13 @@
     </div><!--/wrap-->
 
     <!-- These two tags display a welcome message when a user signs in -->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <!-- <p class="notice"><%= notice %></p> -->
+    <!-- <p class="alert"><%= alert %></p> -->
+    <% if notice %>
+      <p id="notice" class="alert alert-info"><%= notice %></p>
+    <% elsif alert %>
+      <p id="alert" class="alert alert-warning"><%= alert %></p>
+    <% end %>
 
     <%= yield %>
 
