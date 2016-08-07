@@ -1,6 +1,10 @@
 **This is my first app.**
 **It will do this and that.**
 
+New branches
+Authentication
+Comment
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
