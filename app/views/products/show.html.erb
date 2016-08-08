@@ -32,5 +32,19 @@
 
   <%= link_to 'Edit', edit_product_path(@product), class:"btn btn-default"%>
 
+  <br>
+
+  <!-- Highest Rating Comment.
+  see the scope in models/product.rb > scope :rating_desc, -> {order(rating: :desc)}
+  and the method highest_rating_comment defined inside the models/comment.rb
+  -->
+  <p>
+    <%= @product.highest_rating_comment %>
+  </p>
+
+  <!-- Lowest Rating Comment -->
+  <p>
+    <%= @product.lowest_rating_comment %>
+  </p>
 
 </div><!-- /container-->
