@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+  # Devise for authentication
   devise_for :users
-  resources :users
+
+  # Nested resource of comments is a subset of products
+  resources :products do
+    resources :comments
+  end
+
   # A resource route maps a number of related requests to actions in a single controller
-  resources :products
+  resources :users
+
   resources :orders, only: [:index, :show, :create, :destroy]
 
   #syntax = HTTP verb (for example 'get'), path (Controller#Action)

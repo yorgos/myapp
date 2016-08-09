@@ -1,0 +1,31 @@
+<div class="list-of-comments">
+  <br>
+  <br>
+  <h3> Highest rating </h3>
+  <p>
+    <%= @product.highest_rating_comment %>
+  </p>
+  <br>
+
+  <h3> Lowest rating </h3>
+  <p>
+    <%= @product.lowest_rating_comment %>
+  </p>
+  <br>
+  <br>
+
+  <h3> Read all the reviews </h3>
+  <br>
+  <% @comments.each do |comment| %>
+    <div class="product-review">
+      <strong><%= comment.user.first_name %></strong>
+      <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small>
+      <blockquote>
+        <p><%= comment.body %></p>
+        <br>
+        <div class="rated" data-score="<%= comment.rating %>"></div>
+      </blockquote>
+    </div>
+  <% end %>
+  <br>
+</div>
