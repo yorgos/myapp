@@ -1,4 +1,12 @@
 class Comment < ApplicationRecord
+
+  # Validations
+  validates :body, presence: true
+  validates :user, presence: true
+  validates :product, presence: true
+  validates :rating, numericality: { only_integer: true }
+
+  # Database relationships
   belongs_to :user
   belongs_to :product
 
@@ -10,9 +18,10 @@ class Comment < ApplicationRecord
   #def self.rating_desc
   #  order(rating: :desc)
   #end
-
   scope :rating_desc, -> { order(rating: :desc) }
 
   # Scope used for displaying our comments in an ascending order based on ranking
   scope :rating_asc, -> { order(:rating) }
+
+
 end
