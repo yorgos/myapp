@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Devise for authentication
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "user_registrations" }
 
   # Nested resource of comments is a subset of products
   resources :products do
