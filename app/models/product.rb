@@ -18,5 +18,11 @@ class Product < ApplicationRecord
     comments.rating_asc.first
   end
 
+  # Method that extracts an average rating from the comments
+  # The .average method always returns a floating point (A Ruby BigDecimal object)
+  # With the .to_f method we are extracting the numerical value from the BigDecimal
+  def average_rating
+    comments.average(:rating).to_f
+  end
 
 end

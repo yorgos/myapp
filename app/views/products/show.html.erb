@@ -26,7 +26,10 @@
       <%= @product.description %>
     </h4>
     <br>
-    <h4><strong>Average Rating:</strong></h4>
+    <h4><strong>Average Rating:</strong>
+      <br>
+      <div class="rated" data-score="<%= @product.average_rating %>"></div>
+    </h4>
     <br>
     <br>
     <p>

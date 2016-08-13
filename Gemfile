@@ -56,11 +56,16 @@ group :production do
   gem 'pg'
 end
 
-# User Authentication
+# User Authentication with devise
 gem 'devise'
 
-# User Authorisation
+# User Authorisation with cancancan
 gem 'cancancan'
 
-# Pagination
+# Pagination with will_paginate
 gem 'will_paginate', '~> 3.1.0'
+
+# Testing with rspec-rails
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
