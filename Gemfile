@@ -69,3 +69,6 @@ gem 'will_paginate', '~> 3.1.0'
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
 end
+
+# assert_template has been extracted to a gem. Include this for Testing controllers
+gem 'rails-controller-testing'

@@ -28,17 +28,17 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-  end
 
-  def initialize(user)
     user ||= User.new # guest user (not logged in)
     if user.admin?
       can :manage, :all
     else
       can :manage, User, id: user.id
-      cannot :destroy, Product, id: product_id
-      cannot :destroy, Comment, id: product_id
+      can :manage, Product
+      can :manage, Comment, id: user.id
+      cannot :destroy, Product
     end
+
   end
 
 end
