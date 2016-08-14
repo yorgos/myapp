@@ -46,6 +46,16 @@ end
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem 'sqlite3'
+
+  # Testing with rspec-rails
+  gem 'rspec-rails', '~> 3.5'
+
+  # assert_template has been extracted to a gem. Include this for Testing controllers
+  gem 'rails-controller-testing'
+
+  # Factory Girl for testing
+  gem "factory_girl_rails", "~> 4.0"
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -64,11 +74,3 @@ gem 'cancancan'
 
 # Pagination with will_paginate
 gem 'will_paginate', '~> 3.1.0'
-
-# Testing with rspec-rails
-group :development, :test do
-  gem 'rspec-rails', '~> 3.5'
-end
-
-# assert_template has been extracted to a gem. Include this for Testing controllers
-gem 'rails-controller-testing'

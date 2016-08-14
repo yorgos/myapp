@@ -3,8 +3,11 @@ require 'rails_helper'
 describe UsersController, :type => :controller do
 
   before do
-    @user = User.create!(email: "test3@test.com", password: "password", first_name: "test3", last_name: "test3")
-    @user2 = User.create!(email: "test4@test.com", password: "password", first_name: "test4", last_name: "test4")
+    # FIxture for creating test user
+    # @user = User.create!(email: "test3@test.com", password: "password", first_name: "test3", last_name: "test3")
+
+    # Using Factory instead of Fixture for creating test users
+    @user = FactoryGirl.create(:user)
   end
 
   describe "GET #show" do
