@@ -1,6 +1,10 @@
 <div class="list-of-comments">
   <br>
   <br>
+  <!-- Highest Rating Comment.
+  see the scope in models/product.rb > scope :rating_desc, -> {order(rating: :desc)}
+  and the method highest_rating_comment defined inside the models/comment.rb
+  -->
   <h3> Highest rating </h3>
   <p>
     <%= @product.highest_rating_comment.body%>

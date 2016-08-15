@@ -1,56 +1,69 @@
-
 <p id="notice"><%= notice %></p>
 
 <div class="container show-product-body">
   <div class="col-sm-12 col-md-6">
     <br>
     <br>
+
     <h3><%= @product.name %></h3>
+
     <br>
+
     <div>
       <%= image_tag(@product.image_url, class: "img-responsive") %>
     </div>
+
     <br>
+
     <h4>
       <strong>Price:</strong>
       <%= number_to_currency(@product.price, unit:"€") %>
     </h4>
+
     <br>
+
     <h4>
       <strong>Colour:</strong>
       <%= @product.colour %>
     </h4>
+
     <br>
+
     <h4>
       <strong>Description:</strong>
       <%= @product.description %>
     </h4>
+
     <br>
-    <h4><strong>Average Rating:</strong>
-      <br>
-      <div class="rated" data-score="<%= @product.average_rating %>"></div>
-    </h4>
+
+    <h4><strong>Average Rating:</strong></h4>
+    <div class="rated" data-score="<%= @product.average_rating %>"></div>
+
     <br>
     <br>
-    <p>
+
+    <!-- Stripe Checkout -->
     <%= form_tag "/payments/create" do %>
-      <%= render partial: "shared/stripe_checkout_button" %>
+      <p>
+        <%= render partial: "shared/stripe_checkout_button" %>
+      <p>
     <% end %>
-    <p>
-    <p>
-      <%= link_to 'Edit', edit_product_path(@product), class:"btn btn-default"%>
-    </p>
+
+
+    <!-- Edit with admin conditional -->
+    <% if signed_in? && current_user.admin? %>
+      <p>
+        <%= link_to 'Edit', edit_product_path(@product), class:"btn btn-default"%>
+      </p>
+    <% end %>
+
     <br>
-    <br>
-    <br>
+
     <p>
       <%= link_to 'Back', products_path, class:"btn btn-default" %>
     </p>
+
     <br>
-    <!-- Highest Rating Comment.
-    see the scope in models/product.rb > scope :rating_desc, -> {order(rating: :desc)}
-    and the method highest_rating_comment defined inside the models/comment.rb
-    -->
 
   </div><!-- /col -->
 
