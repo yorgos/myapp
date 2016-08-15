@@ -13,7 +13,7 @@
     <br>
     <h4>
       <strong>Price:</strong>
-      <%= @product.price %>
+      <%= number_to_currency(@product.price, unit:"€") %>
     </h4>
     <br>
     <h4>
@@ -33,8 +33,15 @@
     <br>
     <br>
     <p>
+    <%= form_tag "/payments/create" do %>
+      <%= render partial: "shared/stripe_checkout_button" %>
+    <% end %>
+    <p>
+    <p>
       <%= link_to 'Edit', edit_product_path(@product), class:"btn btn-default"%>
     </p>
+    <br>
+    <br>
     <br>
     <p>
       <%= link_to 'Back', products_path, class:"btn btn-default" %>

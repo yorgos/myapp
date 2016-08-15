@@ -1,7 +1,7 @@
 <div class="col-sm-12 col-md-4">
   <%= image_tag(product.image_url, class: "img-responsive") %>
   <h2><%= product.name %></h2>
-  <h3> &euro; <%= product.price %></h3>
+  <h3><%= number_to_currency(product.price, unit:"€") %></h3>
   <p><%= product.colour %></p>
   <p><%= product.description %></p>
 

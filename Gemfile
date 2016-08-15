@@ -74,3 +74,6 @@ gem 'cancancan'
 
 # Pagination with will_paginate
 gem 'will_paginate', '~> 3.1.0'
+
+# Payments Processing with Stripe
+gem 'stripe'
