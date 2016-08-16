@@ -8,3 +8,6 @@
   data-locale="auto"
   data-currency="eur">
 </script>
+
+<!-- making product_id accessible in the parameters in order to be able to access the product in the payments controller -->
+<%= hidden_field_tag(:product_id, "@product.id") %>
