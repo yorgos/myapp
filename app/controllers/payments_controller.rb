@@ -7,41 +7,44 @@ class PaymentsController < ApplicationController
 
   # POST /payments/payment_created
   def create
-  # Setting an instance variable that finds a particular product by reads the params of the hidden field in the stripe checkout button form
-  @product = Product.find(params[:product_id])
-  @user = current_user
 
-  # Get the credit card details submitted by the form
-  token = params[:stripeToken]
+    # Setting an instance variable that finds a particular product by reads the params of the hidden field in the stripe checkout button form
+    @product = Product.find(params[:product_id])
+    @user = current_user
 
-  # Create the charge on Stripe's servers - this will charge the user's card
-  begin
-    charge = Stripe::Charge.create(
-      # We can access the price of the product because we have set the instance variable above
-      :amount => @product.price,
-      :currency => "eur",
-      :source => token,
-      :description => params[:stripeEmail]
-    )
-  # Checking whether the payment has been successfull
-  # .paid is a method prvided by Stripe
-  # If paiment was successfull, the order is being created
-  if charge.paid
-    Order.create(
-      :product_id => @product.product_id,
-      :user_id => @user.user_id,
-      :total => @product.price
-    )
+    # Get the credit card details submitted by the form
+    token = params[:stripeToken]
+
+    # Create the charge on Stripe's servers - this will charge the user's card
+    begin
+      charge = Stripe::Charge.create(
+        # We can access the price of the product because we have set the instance variable above
+        :amount => @product.price,
+        :currency => "eur",
+        :source => token,
+        :description => params[:stripeEmail]
+      )
+
+    # Checking whether the payment has been successfull
+    # .paid is a method prvided by Stripe
+    # If paiment was successfull, the order is being created
+    if charge.paid
+      Order.create(
+        :product_id => @product.product_id,
+        :user_id => @user.user_id,
+        :total => @product.price
+      )
+    end
+
+    rescue Stripe::CardError => e
+      # The card has been declined
+      body = e.json_body
+      err = body[:error]
+      flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
+    end
+
+    redirect_to "payments/payment_created.erb"
+    # another option is: redirect_to product_path(@product)
+
   end
-
-  rescue Stripe::CardError => e
-    # The card has been declined
-    body = e.json_body
-    err = body[:error]
-    flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
-  end
-
-  redirect_to "payments/payment_created.erb"
-  # another option redirect_to product_path(@product)
-
 end
