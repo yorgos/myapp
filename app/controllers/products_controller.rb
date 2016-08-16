@@ -5,18 +5,23 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    # Here we create an instance variable @products
-    # and we asign to it all the contents of the array Product which is in the model
-    # in order to be able to reference it in the dynamic html views
-    # @products = Product.all
 
-    # Conditional search. Depending on the environment where the search is applied at (production/development) we use a diferent SQL maching method
+
+    # Conditional search. Depending on the environment where the search is applied at (production vs development) we use a diferent SQL matching method
     # the LIKE sql method is case sensitive in the development environment
     # the ILIKE sql method is not case sensitive and it is going to be used for the production environment
     # If there is no search then all the products are going to be displayed.
     if Rails.env.development? && params[:q]
+      # Here we create an instance variable @products
+      # and we asign to it all the contents of the array Product which is in the model
+      # in order to be able to reference it in the dynamic html views
       search_term = params[:q]
+
+      # Debbugging Test. Using the debbuger I am able to distinguish each step in the terminal logs
+      # logger.debug "********************THE USER IS SEARCHING FOR '#{search_term}'"
+
       @products = Product.where("name LIKE ?", "%#{search_term}%")
+
     elsif Rails.env.production? && params[:q]
       search_term = params[:q]
       @products = Product.where("name ILIKE ?", "%#{search_term}%")
@@ -45,7 +50,6 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }

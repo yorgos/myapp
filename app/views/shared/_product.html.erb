@@ -1,9 +1,13 @@
+
 <div class="col-sm-12 col-md-4">
   <%= image_tag(product.image_url, class: "img-responsive") %>
   <h2><%= product.name %></h2>
   <h3><%= number_to_currency(product.price, unit:"€") %></h3>
   <p><%= product.colour %></p>
   <p><%= product.description %></p>
+
+<!-- Debbugging Test. Using the debbuger I am able to distinguish each step in the terminal logs -->
+<% logger.debug "******************************* PRODUCT:#{product.name}"%>
 
   <p>
     <%= link_to 'Show', product, class:"btn btn-default"%>
