@@ -1,25 +1,30 @@
 <div class="add-your-review">
-  <% if signed_in? %>
-    <h3>Add your review:</h3>
-    <br>
-    <%= form_for([@product, @product.comments.build]) do |f| %>
-      <p>
-        <%= f.label :body, "Your comment:" %><br>
-        <%= f.text_area :body, class:"form-control"%>
-      </p>
-      <br>
-      <p>
-        <%= f.label :rating, "Your rating:"%>
-        <!--  f.text_field :rating, class: "rating form-control"
-        The jquery plugin 'raty' only needs a class named rating in order to work -->
-        <div class="rating"></div>
-      </p>
-      <br>
-      <p>
-        <%= f.submit class:"btn btn-default" "Submit" %>
-      </p>
-      <br>
+  <div class="col-sm-12 col-md-4">
 
+    <% if signed_in? %>
+      <h3>Add your review </h3>
+      <br>
+      <%= form_for([@product, @product.comments.build]) do |f| %>
+        <p>
+          <%= f.label :body, "Your comment:" %><br>
+          <%= f.text_area :body, class:"form-control"%>
+        </p>
+        <br>
+        <p>
+          <%= f.label :rating, "Your rating:"%>
+          <!--  f.text_field :rating, class: "rating form-control"
+          The jquery plugin 'raty' only needs a class named rating in order to work -->
+          <div class="rating"></div>
+        </p>
+        <br>
+        <p>
+          <%= f.submit class:"btn btn-default" "Submit" %>
+        </p>
+        <br>
+
+      <% end %>
     <% end %>
-  <% end %>
+
+  </div>
+
 </div>

@@ -10,8 +10,9 @@
     <!--Linking CSS from local file-->
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 
-    <!--Linking Javascript from local file-->
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': true %>
+    <!--Linking Javascript from this file to the application.js file under javascripts-->
+    <!-- <%#= javascript_include_tag 'application', 'data-turbolinks-track': true %> -->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
 
     <!-- Linking Javascript from Bootstrap CDN after we load the local Javascript as the remote requires jquery which is loaded from the local file-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -145,7 +146,7 @@
       <div class="footer-margin">
     </footer>
 
-    
+
 
   </body>
 </html>
