@@ -77,3 +77,6 @@ gem 'will_paginate', '~> 3.1.0'
 
 # Payments Processing with Stripe
 gem 'stripe'
+
+# Security scanning with Brakeman
+gem 'brakeman', :require => false
