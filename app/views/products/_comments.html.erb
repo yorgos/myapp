@@ -42,7 +42,7 @@
 
     <h3> All the Reviews </h3>
     <% @comments.each do |comment| %>
-      <div class="product-review">
+      <div class="product-reviews">
         <br>
         <strong><%= comment.user.first_name %></strong>
         <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small>
