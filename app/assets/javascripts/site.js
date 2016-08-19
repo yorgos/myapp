@@ -3,7 +3,7 @@
 // If there are any other event listeners running on $(document) itself (e.g. $(document).on("click", ...) that one should not be inside the $(document).on('turbolinks ... function. Instead, it should be next to it (either below or above).
 
 
-var refreshRating = function{} {
+var refreshRating = function() {
   // Raty Plugin
   $('.rating').raty({ path: '/assets', scoreName: 'comment[rating]'});
 
