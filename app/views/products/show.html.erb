@@ -1,75 +1,80 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container show-product-body">
-  <div class="row">
-    <div class="col-sm-12 col-md-6">
-      <br>
-      <br>
+  <!-- Caching -->
+  <% cache @product do %>
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
 
-      <h3><%= @product.name %></h3>
+        <br>
+        <br>
 
-      <div>
-        <%= image_tag(@product.image_url, class: "img-zoom img-responsive", data_zoom_image: "@product.image_url") %>
-      </div>
+        <h3><%= @product.name %></h3>
 
-    </div><!-- /col -->
+        <div>
+          <%= image_tag(@product.image_url, class: "img-zoom img-responsive", data_zoom_image: "@product.image_url") %>
+        </div>
 
-    <div class="col-sm-12 col-md-6">
-      <br>
-      <br>
-      <br>
-      <h4>
-        <strong>Price:</strong>
-        <%= number_to_currency(@product.price, unit:"€") %>
-      </h4>
+      </div><!-- /col -->
 
-      <br>
+      <div class="col-sm-12 col-md-6">
 
-      <h4>
-        <strong>Colour:</strong>
-        <%= @product.colour %>
-      </h4>
+        <br>
+        <br>
+        <br>
 
-      <br>
+        <h4>
+          <strong>Price:</strong>
+          <%= number_to_currency(@product.price, unit:"€") %>
+        </h4>
 
-      <h4>
-        <strong>Description:</strong>
-        <%= @product.description %>
-      </h4>
+        <br>
 
-      <br>
+        <h4>
+          <strong>Colour:</strong>
+          <%= @product.colour %>
+        </h4>
 
-      <h4><strong>Average Rating:</strong></h4>
-      <div class="rated" data-score="<%= @product.average_rating %>"></div>
+        <br>
 
-      <br>
-      <br>
+        <h4>
+          <strong>Description:</strong>
+          <%= @product.description %>
+        </h4>
 
-      <!-- Stripe Checkout -->
-      <%= form_tag "/payments/create" do %>
+        <br>
+
+        <h4><strong>Average Rating:</strong></h4>
+        <div class="rated" data-score="<%= @product.average_rating %>"></div>
+
+        <br>
+        <br>
+
+        <!-- Stripe Checkout -->
+        <%= form_tag "/payments/create" do %>
+          <p>
+            <%= render partial: "shared/stripe_checkout_button" %>
+          <p>
+        <% end %>
+
+        <br>
+
+        <!-- Edit with admin conditional -->
+        <% if signed_in? && current_user.admin? %>
+          <p>
+            <%= link_to 'Edit', edit_product_path(@product), class:"btn btn-default"%>
+          </p>
+        <% end %>
+
+        <br>
+
         <p>
-          <%= render partial: "shared/stripe_checkout_button" %>
-        <p>
-      <% end %>
-
-      <br>
-
-      <!-- Edit with admin conditional -->
-      <% if signed_in? && current_user.admin? %>
-        <p>
-          <%= link_to 'Edit', edit_product_path(@product), class:"btn btn-default"%>
+          <%= link_to 'Back', products_path, class:"btn btn-default" %>
         </p>
-      <% end %>
 
-      <br>
-
-      <p>
-        <%= link_to 'Back', products_path, class:"btn btn-default" %>
-      </p>
-
-    </div><!-- /col -->
-
-  </div><!-- /row -->
+      </div><!-- /col -->
+    </div><!-- /row -->
+  <% end %><!-- /caching -->
 
   <div class="row">
       <!-- Rendering partials -->

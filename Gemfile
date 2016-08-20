@@ -80,3 +80,9 @@ gem 'stripe'
 
 # Security scanning with Brakeman
 gem 'brakeman', :require => false
+
+# Caching with Dalli (Ruby memcache client)
+gem 'dalli'
+
+# Dalli by default uses a single connection to each server. This works fine normally, but can be come a bottleneck in a multi-threaded environment and limit performance. In this case, Dalli support connection pooling, where multiple connections are created to MemCachier’s servers. 
+gem 'connection_pool'
