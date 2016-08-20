@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+
+  # CACHING ====================================================================
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -12,6 +15,7 @@ Rails.application.configure do
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
+  #turning this off to see it dalli works
   config.action_controller.perform_caching = true
 
   # Disable serving static files from the `/public` folder by default since
@@ -42,25 +46,28 @@ Rails.application.configure do
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 
+  # Use a different cache store in production.
+  # DEFAULT WAS: config.cache_store = :mem_cache_store
+  require 'dalli'
+  config.cache_store = :dalli_store,
+                      (ENV["mc4.dev.ec2.memcachier.com:11211"] || "").split(","),
+                      {:username => ENV["2939d3"],
+                       :password => ENV["6cc28764eeac268a8375bc849f9f70dd"],
+                       :failover => true,
+                       :socket_timeout => 1.5,
+                       :socket_failure_delay => 0.2,
+                       # parameter fro the connection pull gem for the puma server
+                       :pool_size => 5
+                      }
+
+  # LOGS =======================================================================
+
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
-
-  # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
-  config.cache_store = :dalli_store,
-                      (ENV["MEMCACHIER_SERVERS"] || "").split(","),
-                      {:username => ENV["MEMCACHIER_USERNAME"],
-                       :password => ENV["MEMCACHIER_PASSWORD"],
-                       :failover => true,
-                       :socket_timeout => 1.5,
-                       :socket_failure_delay => 0.2,
-                       :pool_size => 5
-                      }
-
 
 
   # Use a real queuing backend for Active Job (and separate queues per environment)

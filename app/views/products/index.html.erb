@@ -7,16 +7,16 @@
 <div class="container">
 
   <!-- caching -->
-  <% cache(cache_key_for_products) do %>
-    <div class="row">
-      <!-- Goes to the index method of the products controller
-      and takes the instance variable @products
-      where we have assigned all the contents of the product array -->
-      <% @products.each do |product| %>
+  <div class="row">
+    <!-- Goes to the index method of the products controller
+    and takes the instance variable @products
+    where we have assigned all the contents of the product array -->
+    <% @products.each do |product| %>
+      <% cache(cache_key_for_products) do %>
         <%= render partial: 'shared/product', locals: {product: product} %>
-      <% end %>
-    </div><!-- /row -->
-  <% end %><!-- /caching -->
+      <% end %><!-- /caching -->
+    <% end %><!-- /product -->
+  </div><!-- /row -->
 
   <br>
 
