@@ -89,3 +89,12 @@ gem 'dalli'
 
 # 6.11 Dalli by default uses a single connection to each server. This works fine normally, but can be come a bottleneck in a multi-threaded environment and limit performance. In this case, Dalli support connection pooling, where multiple connections are created to MemCachier’s servers.
 gem 'connection_pool'
+
+# 6.12 Redis for Rails
+gem 'redis-rails'
+
+# 6.12 Redis
+gem 'redis', '~>3.2'
+
+# 6.12 Monitoring tool New Relic for mesuring performance and building Performance Strategy
+gem 'newrelic_rpm'

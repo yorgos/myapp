@@ -1,7 +1,8 @@
 <!-- <p>Find me in app/views/static_pages/index.html.erb</p> -->
+<% cache do %>
+  <h1>Welcome to Flat Tire</h1>
+  <!-- <p>Find me in app/views/static_pages/index.html.erb</p> -->
+  <h2>Some of the best bicycles in the world, slightly used.</h2>
 
-<h1>Welcome to Flat Tire</h1>
-<!-- <p>Find me in app/views/static_pages/index.html.erb</p> -->
-<h2>Some of the best bicycles in the world, slightly used.</h2>
-
-<%= image_tag("racebike.jpg", class: "home-img img-responsive") %>
+  <%= image_tag("racebike.jpg", class: "home-img img-responsive") %>
+<% end %><!-- caching -->
