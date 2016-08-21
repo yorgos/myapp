@@ -61,5 +61,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  # Here we declare that we want our default js engine to be javascript and not coffeescript
+  config.app_generators.javascript_engine = :javascript
 
 end

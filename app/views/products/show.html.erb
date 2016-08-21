@@ -77,6 +77,8 @@
   <% end %><!-- /caching -->
 
   <div class="row">
+      <!-- alert for new comment (action cable) -->
+      <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
       <!-- Rendering partials -->
       <%= render 'comments' %>
       <%= render 'new_comment'%>
