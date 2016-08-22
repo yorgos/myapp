@@ -1,5 +1,6 @@
 // Hiding the new comment form after a comment has been posted and giving feedback to the user.
 $("#new_comment").html("Thank you for your review!");
 
-$(".product-reviews").prepend("<%= j render @comment %>");
-refreshRating();
+// Commenting this out to make sure the comment doesn't show up twice for the person submitting the comment
+// $(".product-reviews").prepend("<%= j render @comment %>");
+// refreshRating();

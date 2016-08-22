@@ -3,7 +3,7 @@
 <div class="container show-product-body">
   <!-- Caching -->
   <% cache @product do %>
-    <div class="row">
+    <div class="row" data-product-id="<%= @product.id %>">
       <div class="col-sm-12 col-md-6">
 
         <br>
