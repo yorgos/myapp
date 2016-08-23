@@ -6,7 +6,7 @@
 
 <div class="container">
 
-  <!-- Create new product with admin conditional -->
+  <!-- Option to create new product if user is an admin -->
   <% if signed_in? && current_user.admin? %>
     <p>
       <%= link_to 'Create New Product', new_product_path, class:"btn btn-default"%>
