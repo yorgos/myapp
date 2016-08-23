@@ -32,12 +32,51 @@ h1, h2, h3 {
 }
 
 .navbar-brand {
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
-.login-link .logout-link {
-  font-size: 4em;
-  font-weight: bold;
+
+li .btn-default {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  margin-top: 8px;
+}
+
+.login-link {
+  font-size: 1.5em;
+
+
+}
+
+.logout-link {
+  font-size: 1.5em;
+
+}
+
+
+@media (max-width: 770px) {
+  .navbar-form {
+    margin-right: auto;
+  }
+
+  .navbar-form > .btn {
+    margin-top: 2%;
+  }
+
+  li .btn-default {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+    margin-top: 8px;
+    left: 15px;
+    margin-right:250px;
+    }
+}
+
+@media (max-width: 1000px) {
+  .navbar-form {
+    padding-right: 0;
+  }
+
 }
 
 /* ======================= HOME ================================*/
@@ -49,7 +88,7 @@ h1, h2, h3 {
 
 /* ==================== LANDING PAGE ============================*/
 .carousel-caption {
-  margin-bottom: 77%;
+//  margin-bottom: 77%;
   text-shadow: 0 0 0;
 }
 
@@ -60,6 +99,15 @@ h1, h2, h3 {
 .carousel-control {
   opacity: 0;
 }
+
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  max-height: 800px;
+  margin: 0 auto;
+}
+
+
 
 /* ===================== CONTACT ================================*/
 .contact-img {
@@ -125,36 +173,6 @@ footer p.footer-links a {
   transition: color 200ms;
  }
 
-/*
-footer .footer-right {
-  float: right;
-  margin-top: 6px;
-  max-width: 180px;
-  font-size: 118.8%
-}
-*/
-
-/*
-footer .footer-right a{
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  //background-color:  #33383b;
-  /* border-radius: 2px;
-  font-size: 150%;
-  color: #fff;
-  text-align: center;
-  /* line-height: 35px;
-  /* margin-left: 3px;
-}
-*/
-
-/*
-.fa {
-  font-size: 150%;
-  color: #fff;
-}
-*/
 
 /* Footer Media Queries */
 @media (max-width: 1000px) {

@@ -49,23 +49,6 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-              <!--<li class="active"><a href="#">Products<span class="sr-only">(current)</span></a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
-               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Products</a></li>
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-              </li> -->
-            <!-- <form class="navbar-form navbar-left">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form> -->
             <ul class="nav navbar-nav navbar-right">
               <li><%= link_to "PRODUCTS", products_path, class: "navigation-link" %></li><!--Instead of <a href="#">Products</a>-->
               <li><%= link_to "ABOUT", static_pages_about_path, class: "navigation-link"%></li> <!--Instead of <a href="#">About</a>-->
@@ -74,24 +57,12 @@
               <!-- Sign-in, Login, Logout -->
               <li>
                 <% if user_signed_in? %>
-                  <%= link_to("Logout", destroy_user_session_path, :method => :delete, class:"login-link") %>
+                  <%= link_to("Log out", destroy_user_session_path, :method => :delete, class:"btn btn-default login-link") %>
                 <% else %>
-                  <%= link_to("Login", new_user_session_path, class:"logout-link") %>
+                  <%= link_to("Log in", new_user_session_path, class:"btn btn-default login-link") %>
                 <% end %>
               </li>
-
-
-              <!-- <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">dropdown one</a></li>
-                  <li><a href="#">dropdown two</a></li>
-                  <li><a href="#">dropdown three</a></li>
-                </ul>
-              </li> -->
             </ul>
-
-
 
             <!-- Search form -->
             <%= form_tag("/products", method: "get", class:"navbar-form navbar-right", role:"search") do %>
@@ -118,20 +89,8 @@
 
     <%= yield %>
 
-<!--<footer class="footer" id="footer">
-      <div class="container">
-        <p class="text-muted copyright">&copy; 2016 Bike Berlin GmbH</p>
-      </div>
-    </footer>
--->
     <footer class="footer-distributed">
       <div class="container">
-        <!--
-        <div class="social footer-right">
-          <a href="https://www.facebook.com/facebook"><i class="fa fa-facebook"></i></a>
-          <a href="https://twitter.com/twitter?lang=en"><i class="fa fa-twitter"></i></a>
-        </div><!-End of footer right
-        -->
 
         <div class="footer-left">
           <p class="footer-links">

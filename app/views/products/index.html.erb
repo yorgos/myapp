@@ -6,6 +6,15 @@
 
 <div class="container">
 
+  <!-- Create new product with admin conditional -->
+  <% if signed_in? && current_user.admin? %>
+    <p>
+      <%= link_to 'Create New Product', new_product_path, class:"btn btn-default"%>
+    </p>
+  <% end %>
+
+  <br>
+
   <!-- caching -->
   <div class="row">
     <!-- Goes to the index method of the products controller
@@ -17,15 +26,6 @@
       <% end %><!-- /caching -->
     <% end %><!-- /product -->
   </div><!-- /row -->
-
-  <br>
-
-  <!-- Create new product with admin conditional -->
-  <% if signed_in? && current_user.admin? %>
-    <p>
-      <%= link_to 'Create New Product', new_product_path, class:"btn btn-default"%>
-    </p>
-  <% end %>
 
   <br>
 
