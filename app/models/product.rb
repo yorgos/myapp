@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
 
-  # Validation on what the user is inserting
+  # All new products are required to have a name
   validates :name, presence: true
 
   # Database relationships

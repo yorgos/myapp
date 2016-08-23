@@ -1,6 +1,7 @@
 class Comment < ApplicationRecord
 
-  # Validations
+  # Validations. Every comment record should be saved with a userID, productID and message.
+  # Here we make sure all these are present.
   validates :body, presence: true
   validates :user, presence: true
   validates :product, presence: true
@@ -19,7 +20,6 @@ class Comment < ApplicationRecord
   # It allowes us to use <%= @product.comments.rating_desc.first %> in the view
   # instead of the more complicated <%= @product.comments.order(rating: :desc).first
   # This is exactly the same as defining a class method, and which you use is a matter of personal preference.
-
   #def self.rating_desc
   #  order(rating: :desc)
   #end
@@ -27,6 +27,5 @@ class Comment < ApplicationRecord
 
   # Scope used for displaying our comments in an ascending order based on ranking
   scope :rating_asc, -> { order(:rating) }
-
 
 end

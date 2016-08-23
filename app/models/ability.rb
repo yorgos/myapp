@@ -32,10 +32,10 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.admin?
       can :manage, :all
+      can :create, Product
     else
-      can :manage, User, id: user.id
-      can :manage, Product
-      can :manage, Comment, id: user.id
+      can :read, :all
+      cannot :update, Product
       cannot :destroy, Product
     end
 
