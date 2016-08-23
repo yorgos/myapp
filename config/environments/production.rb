@@ -15,15 +15,19 @@ Rails.application.configure do
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
+
   #turning this off to see it dalli works
   config.action_controller.perform_caching = true
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.public_file_server.enabled = true #ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = true
+
+  #ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
+
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -51,6 +55,7 @@ Rails.application.configure do
   # Use a different cache store in production.
   # DEFAULT WAS: config.cache_store = :mem_cache_store
   require 'dalli'
+
   config.cache_store = :dalli_store,
                       (ENV["mc4.dev.ec2.memcachier.com:11211"] || "").split(","),
                       {:username => ENV["2939d3"],
@@ -70,7 +75,6 @@ Rails.application.configure do
 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
-
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque

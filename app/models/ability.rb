@@ -33,6 +33,8 @@ class Ability
     if user.admin?
       can :manage, :all
       can :create, Product
+      can :update, Product
+      can :destroy, Product
     else
       can :read, :all
       cannot :update, Product
