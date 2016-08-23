@@ -5,8 +5,6 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-
-
     # Conditional search. Depending on the environment where the search is applied at (production vs development) we use a diferent SQL matching method
     # the LIKE sql method is case sensitive in the development environment
     # the ILIKE sql method is not case sensitive and it is going to be used for the production environment

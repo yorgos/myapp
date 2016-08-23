@@ -12,9 +12,10 @@
   <% logger.debug "******************************* PRODUCT:#{product.name}"%>
 
     <p>
+      <!-- OPtion Show product available for all users -->
       <%= link_to 'Show', product, class:"btn btn-default"%>
 
-      <!-- Edit and Destroy with admin conditional -->
+      <!-- Options Edit and Destroy product available only for the admin -->
       <% if signed_in? && current_user.admin? %>
         <%= link_to 'Edit', edit_product_path(product), class:"btn btn-default" %>
         <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-default"%>
