@@ -4,10 +4,7 @@
   data-image="<%= @product.image_url %>"
   data-name="<%= @product.name %>"
   data-description="<%= @product.description %>"
-  data-amount="<%= @product.price * 100 %>"
+  data-amount="<%= (@product.price * 100).to_i %>"
   data-locale="auto"
   data-currency="eur">
 </script>
-
-<!-- making product_id accessible in the parameters in order to be able to access the product in the payments controller -->
-<%= hidden_field_tag(:product_id, "@product.id") %>
