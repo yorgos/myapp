@@ -37,8 +37,8 @@ class Ability
       can :destroy, Product
     else
       can :read, :all
-      can :create, Comment, user_id: @user.id
-      can :destroy, Comment, user_id: @user.id
+      can :create, Comment, user_id: user.id
+      can :destroy, Comment, user_id: user.id
       cannot :update, Product
       cannot :destroy, Product
     end
