@@ -43,7 +43,7 @@ class PaymentsController < ApplicationController
       flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
     end
 
-    render :create
+    # render :create
     # redirect_to "payments/payment_created.erb"
     # another option is: redirect_to product_path(@product)
 
