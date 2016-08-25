@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
     # Input validity check
     respond_to do |format|
       if @comment.save
+
         format.html { redirect_to @product, notice: 'Review was created successfully.' }
         format.json { render :show, status: :created, location: @product }
         # For the AJAX request
