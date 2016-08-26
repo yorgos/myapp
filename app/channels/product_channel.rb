@@ -4,7 +4,6 @@ class ProductChannel < ApplicationCable::Channel
     # stream_from "some_channel"
     # this chanel streams updates from all products to all products
     # stream_from "product_channel"
-
   end
 
   def unsubscribed

@@ -15,7 +15,6 @@
 
   <br>
 
-  <!-- caching -->
   <div class="row">
     <!-- Goes to the index method of the products controller
     and takes the instance variable @products
@@ -23,9 +22,9 @@
     <% cache(cache_key_for_products) do %>
       <% @products.each do |product| %>
           <%= render partial: 'shared/product', locals: {product: product} %>
-      <% end %><!-- /product -->
-    <% end %><!-- /caching -->
-  </div><!-- /row -->
+      <% end %><!-- /loop -->
+    <% end %><!-- /cache -->
+  </div>
 
   <br>
 

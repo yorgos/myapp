@@ -1,13 +1,14 @@
-<!-- <p>Find me in app/views/static_pages/contact.html.erb</p> -->
-
+<!-- <p> Find me in app/views/static_pages/contact.html.erb </p> -->
 <section class="container anchor" id="contact">
-  <% cache do %><!-- caching -->
+
+  <% cache do %>
+
     <header class="contact-header">
       <h1>Contact</h1>
-    </header><!--End of contact-header-->
-
+    </header>
 
     <div class="row">
+
       <!--Address-->
       <div class="col-lg-4 col-md-4 col-sm-10 col-xs-12 ">
         <div class="address">
@@ -23,8 +24,6 @@
             <br>&thinsp;Germany
           </p>
         </div><!-- /address -->
-        <!-- Image -->
-        <!-- <%= image_tag("contact.jpg", class: "contact-img img-responsive")%> -->
       </div><!-- /col -->
 
       <!-- Contact form -->
@@ -38,21 +37,22 @@
               <%= label_tag :name %>
               <%= text_field_tag :name, nil, class:"form-control", placeholder:"Enter Name", required:"true" %>
             </div>
+
             <div class="form-group">
               <%= label_tag :email, "Email Address" %>
               <%= text_field_tag :email, nil, class:"form-control", placeholder:"Enter Email", required:"true" %>
             </div>
+
             <div class="form-group">
               <%= label_tag :message %>
               <%= text_area_tag :message, nil, class:"form-control message-box", placeholder:"Enter Message", required:"true" %>
             </div>
-            <%= submit_tag "Send", class: "btn btn-primary" %>
+              <%= submit_tag "Send", class: "btn btn-primary" %>
             <br>
-
           </div><!-- /form -->
         </div><!-- /col -->
-      <% end %>
+      <% end %><!-- /form -->
+    </div><!-- /row -->
+  <% end %><!-- /cache -->
 
-    </div>
-  <% end %><!-- caching -->
 </section><!-- /contact -->

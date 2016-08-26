@@ -7,7 +7,6 @@ class PaymentsController < ApplicationController
 
   # POST /payments/payment_created
   def create
-
     # Setting an instance variable that finds a particular product by reading the params of the hidden field in the stripe checkout button form
     @product = Product.find(params[:product_id])
     @user = current_user
@@ -26,7 +25,7 @@ class PaymentsController < ApplicationController
       )
 
     # Checking whether the payment has been successfull
-    # .paid is a method prvided by Stripe
+    # .paid is a method provided by Stripe
     # If payment was successfull, the order is being created
     if charge.paid
       Order.create(

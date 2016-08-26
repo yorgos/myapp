@@ -38,7 +38,5 @@ class Ability
       can [:create, :destroy], Comment, user_id: user.id
       cannot [:update, :destroy], Product
     end
-
   end
-
 end

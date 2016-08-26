@@ -1,4 +1,3 @@
-<!-- caching -->
 <% cache product do %>
 
   <div class="col-sm-12 col-md-4">
@@ -8,8 +7,8 @@
     <p><%= product.colour %></p>
     <p><%= product.description %></p>
 
-  <!-- Debbugging Test. Using the debbuger I am able to distinguish each step in the terminal logs -->
-  <% logger.debug "******************************* PRODUCT:#{product.name}"%>
+    <!-- Debbugging Test. Using the debbuger I am able to distinguish each step in the terminal logs -->
+    <% logger.debug "******************************* PRODUCT:#{product.name}"%>
 
     <p>
       <!-- OPtion Show product available for all users -->
@@ -19,4 +18,5 @@
     </p>
 
   </div>
-<% end %><!-- /caching -->
+
+<% end %><!-- /cache -->

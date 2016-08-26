@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
       if @comment.save
 
         ProductChannel.broadcast_to comment.product_id, comment: render_comment(comment, current_user)
-        
+
         format.html { redirect_to @product, notice: 'Review was created successfully.' }
         format.json { render :show, status: :created, location: @product }
         # For the AJAX request
@@ -29,9 +29,7 @@ class CommentsController < ApplicationController
     redirect_to product
   end
 
-
   private
-
     def comment_params
       params.require(:comment).permit(:user_id, :body, :rating)
     end

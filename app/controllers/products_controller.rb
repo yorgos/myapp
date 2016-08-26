@@ -10,23 +10,19 @@ class ProductsController < ApplicationController
     # the ILIKE sql method is not case sensitive and it is going to be used for the production environment
     # If there is no search then all the products are going to be displayed.
     if Rails.env.development? && params[:q]
-      # Here we create an instance variable @products
-      # and we asign to it all the contents of the array Product which is in the model
-      # in order to be able to reference it in the dynamic html views
       search_term = params[:q]
-
       # Debbugging Test. Using the debbuger I am able to distinguish each step in the terminal logs
       # logger.debug "********************THE USER IS SEARCHING FOR '#{search_term}'"
-
       @products = Product.where("name LIKE ?", "%#{search_term}%")
-
     elsif Rails.env.production? && params[:q]
       search_term = params[:q]
       @products = Product.where("name ILIKE ?", "%#{search_term}%")
     else
+      # Here we create an instance variable @products
+      # and we asign to it all the contents of the array Product which is in the model
+      # in order to be able to reference it in the dynamic html views
       @products = Product.all
     end
-
   end
 
   # GET /products/1

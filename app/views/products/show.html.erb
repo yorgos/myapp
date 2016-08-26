@@ -1,93 +1,70 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container show-product-body">
-  <!-- Caching -->
   <% cache @product do %>
     <div class="row" data-product-id="<%= @product.id %>">
       <div class="col-sm-12 col-md-6">
-
         <br>
         <br>
-
         <h3><%= @product.name %></h3>
-
         <div>
           <%= image_tag(@product.image_url, class: "img-zoom img-responsive", data_zoom_image: "@product.image_url") %>
         </div>
-
       </div><!-- /col -->
-
       <div class="col-sm-12 col-md-6">
-
         <br>
         <br>
         <br>
-
         <h4>
           <strong>Price:</strong>
           <%= number_to_currency(@product.price, unit:"€") %>
         </h4>
-
         <br>
-
         <h4>
           <strong>Colour:</strong>
           <%= @product.colour %>
         </h4>
-
         <br>
-
         <h4>
           <strong>Description:</strong>
           <%= @product.description %>
         </h4>
-
         <br>
-
         <h4><strong>Average Rating:</strong></h4>
         <div class="rated" data-score="<%= @product.average_rating %>"></div>
-
         <br>
         <br>
-
-
-
         <!-- Stripe Checkout -->
         <%= form_tag "/payments/create" do %>
           <p>
-            <!-- making product_id accessible in the parameters in order to be able to access the product in the payments controller -->
+            <!-- making product_id accessible to the parameters in order to be able to access the product in the payments controller -->
             <%= hidden_field_tag(:product_id, @product.id) %>
-
             <%= render partial: "shared/stripe_checkout_button" %>
           <p>
         <% end %>
-
         <br>
-
-          <p>
-            <%= link_to 'Edit', edit_product_path(@product), class:"btn btn-default"%>
-          </p>
+        <p>
+          <%= link_to 'Edit', edit_product_path(@product), class:"btn btn-default"%>
+        </p>
         <br>
-
         <p>
           <%= link_to 'Back', products_path, class:"btn btn-default" %>
         </p>
-
       </div><!-- /col -->
     </div><!-- /row -->
-  <% end %><!-- /caching -->
+  <% end %><!-- /cache -->
 
   <div class="row">
-      <!-- alert for new comment (action cable) -->
-      <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
-      <!-- Rendering partials -->
-      <%= render 'comments' %>
-      <%= render 'new_comment'%>
+    <!-- ActionCable alert for new comment -->
+    <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
+    <!-- Rendering partials -->
+    <%= render 'comments' %>
+    <%= render 'new_comment'%>
   </div><!-- /row -->
 
   <!-- elevateZoom - A jQuery image zoom plugin -->
   <script>
-      $('#zoom_01').elevateZoom();
+    $('#zoom_01').elevateZoom();
   </script>
 
 </div><!-- /container-->

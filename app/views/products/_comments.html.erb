@@ -1,17 +1,16 @@
 <div class="list-of-comments">
-
   <!-- Highest Rating Comment.
   see the scope in models/product.rb > scope :rating_desc, -> {order(rating: :desc)}
   and the method highest_rating_comment defined inside the models/comment.rb
   -->
   <div class="col-sm-12 col-md-4">
 
+    <!-- highest rating review -->
     <% if @product.highest_rating_comment %>
       <h3> Highest Rating Review </h3>
       <p>
-        <!-- space -->
         &nbsp;
-        <!-- Review Core -->
+        <!-- review body -->
         <blockquote>
           <p><%= @product.highest_rating_comment.body%></p>
           <br>
@@ -19,14 +18,14 @@
         </blockquote>
       </p>
       <br>
-    <% end %>
+    <% end %><!-- /if -->
 
+    <!-- lowest rating review -->
     <% if @product.lowest_rating_comment %>
       <h3> Lowest Rating Review </h3>
       <p>
-        <!-- space -->
         &nbsp;
-        <!-- Review Core -->
+        <!-- review body -->
         <blockquote>
           <p><%= @product.lowest_rating_comment.body %></p>
           <br>
@@ -34,37 +33,39 @@
         </blockquote>
       </p>
       <br>
-    <% end %>
+    <% end %><!-- /if -->
 
   </div><!-- /col -->
 
   <div class="col-sm-12 col-md-4">
-  <h3> All the Reviews </h3>
-      <% @comments.each do |comment| %>
-        <div class="product-reviews">
+    <h3> All the Reviews </h3>
+    <% @comments.each do |comment| %>
+      <div class="product-reviews">
+
+        <br>
+        <strong><%= comment.user.first_name %></strong>
+        <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small>
+        <!-- space -->
+        &nbsp;
+
+        <!-- destroy with admin conditional -->
+        <% if signed_in? && current_user.admin? %>
+          <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product_comment_path(comment.product, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+
+        <!-- review body -->
+        <blockquote>
+          <p><%= comment.body %></p>
           <br>
-          <strong><%= comment.user.first_name %></strong>
-          <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small>
-          <!-- space -->
-          &nbsp;
-          <!-- Destroy with admin conditional -->
-          <% if signed_in? && current_user.admin? %>
-            <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product_comment_path(comment.product, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
+          <div class="rated" data-score="<%= comment.rating %>"></div>
+        </blockquote>
 
-          <!-- Review Body -->
-          <blockquote>
-            <p><%= comment.body %></p>
-            <br>
-            <div class="rated" data-score="<%= comment.rating %>"></div>
-          </blockquote>
+      </div><!-- /product-reviews -->
+    <% end %><!-- loop -->
 
-        </div><!-- /product-reviews -->
-      <% end %>
-
-      <!-- View for pagination -->
-      <%= will_paginate @comments %>
+    <!-- pagination -->
+    <%= will_paginate @comments %>
 
   </div><!-- /col -->
 
-</div>
+</div><!-- /list-of-comments -->

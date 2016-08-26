@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>Flat Tire Berlin</title>
     <%= csrf_meta_tags %>
 
@@ -30,11 +31,10 @@
   </head>
 
   <body>
-
     <div id="wrap">
-
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
+
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -50,10 +50,12 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
             <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to "PRODUCTS", products_path, class: "navigation-link" %></li><!--Instead of <a href="#">Products</a>-->
-              <li><%= link_to "ABOUT", static_pages_about_path, class: "navigation-link"%></li> <!--Instead of <a href="#">About</a>-->
-              <li><%= link_to "CONTACT", static_pages_contact_path, class: "navigation-link" %></li><!--Instead of <a href="#">Contact</a>-->
-
+              <!--Instead of <a href="#">Products</a>-->
+              <li><%= link_to "PRODUCTS", products_path, class: "navigation-link" %></li>
+              <!--Instead of <a href="#">About</a>-->
+              <li><%= link_to "ABOUT", static_pages_about_path, class: "navigation-link"%></li>
+              <!--Instead of <a href="#">Contact</a>-->
+              <li><%= link_to "CONTACT", static_pages_contact_path, class: "navigation-link" %></li>
               <!-- Sign-in, Login, Logout -->
               <li>
                 <% if user_signed_in? %>
@@ -65,22 +67,18 @@
             </ul>
 
             <!-- Search form -->
-            <%= form_tag("/products", method: "get", class:"navbar-form navbar-right", role:"search") do %>
-                <!--<%= label_tag(:q, "Search for") %> -->
-                <%= text_field_tag :q, nil, class:"form-control", placeholder:"Search for..." %>
-                <%= submit_tag("Search", class: "btn btn-default") %>
+            <%= form_tag("/products", method: "get", id: "search-form", class:"navbar-form navbar-right", role:"search") do %>
+              <!--<%= label_tag(:q, "Search for") %> -->
+              <%= text_field_tag :q, nil, class:"form-control", placeholder:"Search for..." %>
+              <%= submit_tag("Search", class: "btn btn-default search-button") %>
             <% end %>
-
 
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
-
     </div><!--/wrap-->
 
     <!-- These two tags display a welcome message when a user signs in -->
-    <!-- <p class="notice"><%= notice %></p> -->
-    <!-- <p class="alert"><%= alert %></p> -->
     <% if notice %>
       <p id="notice" class="alert alert-info"><%= notice %></p>
     <% elsif alert %>
@@ -91,7 +89,6 @@
 
     <footer class="footer-distributed">
       <div class="container">
-
         <div class="footer-left">
           <p class="footer-links">
             <%= link_to "Home", static_pages_index_path %>
@@ -100,12 +97,9 @@
             <%= link_to "Contact", static_pages_contact_path %>
           </p>
           <p>&copy; 2016 Flat Tire GmbH</p>
-        </div><!--End of footer left-->
-
+        </div><!-- /footer-left -->
       <div class="footer-margin">
     </footer>
-
-
 
   </body>
 </html>
