@@ -69,7 +69,7 @@
             <!-- Search form -->
             <%= form_tag("/products", method: "get", id: "search-form", class:"navbar-form navbar-right", role:"search") do %>
               <!--<%= label_tag(:q, "Search for") %> -->
-              <%= text_field_tag :q, nil, class:"form-control", placeholder:"Search for..." %>
+              <%= text_field_tag :q, nil, class:"form-control", placeholder:"Product name..." %>
               <%= submit_tag("Search", class: "btn btn-default search-button") %>
             <% end %>
 

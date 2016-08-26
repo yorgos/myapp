@@ -57,8 +57,12 @@
   <div class="row">
     <!-- ActionCable alert for new comment -->
     <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
+
     <!-- Rendering partials -->
-    <%= render 'comments' %>
+    <div class="product-reviews-wrapper">
+      <%= render 'comments' %>
+    </div>
+
     <%= render 'new_comment'%>
   </div><!-- /row -->
 
