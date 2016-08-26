@@ -11,8 +11,6 @@ class ProductsController < ApplicationController
     # If there is no search then all the products are going to be displayed.
     if Rails.env.development? && params[:q]
       search_term = params[:q]
-      # Debbugging Test. Using the debbuger I am able to distinguish each step in the terminal logs
-      # logger.debug "********************THE USER IS SEARCHING FOR '#{search_term}'"
       @products = Product.where("name LIKE ?", "%#{search_term}%")
     elsif Rails.env.production? && params[:q]
       search_term = params[:q]
