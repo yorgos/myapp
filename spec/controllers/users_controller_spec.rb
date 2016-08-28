@@ -3,7 +3,7 @@ require 'rails_helper'
 describe UsersController, :type => :controller do
 
   before do
-    # FIxture for creating test user
+    # Fixture for creating test user
     # @user = User.create!(email: "test3@test.com", password: "password", first_name: "test3", last_name: "test3")
 
     # Using Factory instead of Fixture for creating test users

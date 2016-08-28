@@ -11,7 +11,7 @@ FactoryGirl.define do
   # in order to specify which class (model) this factory is using.
   # but FactoryGirl is smart enough to "guess" the User model if I name the factory :user.
   factory :user do
-    email # No need to initialize an email as it is handled by the sequesnce above
+    email # No need to initialize an email as it is handled by the sequence above
     password "password"
     first_name "test3"
     last_name "test3"
