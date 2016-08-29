@@ -1,6 +1,5 @@
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
-
     identified_by :current_user
 
     def connect
@@ -12,7 +11,7 @@ module ApplicationCable
 
     protected
       def find_verified_user
-        # request.env['warden'] is where Devise stores its data about the current user
+        # request.env['warden'] is an environment variable containing information about the current user. This is where Devise stores its data about the current user. If a user isn't logged in, this variable will be empty
         if verified_user = request.env['warden'].user
           verified_user
         else

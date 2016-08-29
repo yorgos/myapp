@@ -9,7 +9,11 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
 
-        ProductChannel.broadcast_to @comment.product_id, comment: render(partial: 'comments/comment', locals: {comment: @comment, current_user: current_user })
+        # ActionCable.server.broadcast 'product_channel', comment: @comment
+
+        ProductChannel.broadcast_to @product.id, comment: CommentsController.render(partial: 'comments/comment', locals: {comment: @comment, current_user: current_user})
+
+        # ProductChannel.broadcast_to @comment.product_id, comment: render(partial: 'comments/comment', locals: {comment: @comment, current_user: current_user })
 
         format.html { redirect_to @product, notice: 'Review was created successfully.' }
         format.json { render :show, status: :created, location: @product }
