@@ -22,8 +22,7 @@ class UserMailer < ApplicationMailer
   end
 
   def purchase_thank_you(user)
-
-    mail( :to => @user,
+    mail( :to => user.email,
           :subject => "Thank you for your purchase!")
   end
 

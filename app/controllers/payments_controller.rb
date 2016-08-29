@@ -33,7 +33,7 @@ class PaymentsController < ApplicationController
         :user_id => @user,
         :total => @product.price
       )
-      UserMailer.purchase_thank_you(@user).deliver_now
+      # UserMailer.purchase_thank_you(@user).deliver_now
     end
 
     rescue Stripe::CardError => e
