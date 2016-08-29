@@ -35,14 +35,12 @@
         <br>
         <br>
         <!-- Stripe Checkout -->
-        <% if user_signed_in? %>
-          <%= form_tag "/payments/create" do %>
-            <p>
-              <!-- making product_id accessible to the parameters in order to be able to access the product in the payments controller -->
-              <%= hidden_field_tag(:product_id, @product.id) %>
-              <%= render partial: "shared/stripe_checkout_button" %>
-            <p>
-          <% end %>
+        <%= form_tag "/payments/create" do %>
+          <p>
+            <!-- making product_id accessible to the parameters in order to be able to access the product in the payments controller -->
+            <%= hidden_field_tag(:product_id, @product.id) %>
+            <%= render partial: "shared/stripe_checkout_button" %>
+          <p>
         <% end %>
         <br>
         <p>
