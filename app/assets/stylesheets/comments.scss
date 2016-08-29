@@ -2,10 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.list-of-comments h3 {
+.list-of-comments h2 {
   text-align: left;
 }
 
-.add-your-review h3 {
+.add-your-review h2 {
   text-align: left;
+}
+
+.pagination {
+  font-size: 120%;
+}
+
+.list-of-comments p {
+  font-size: 100%;
 }

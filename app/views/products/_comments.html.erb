@@ -7,7 +7,7 @@
 
     <!-- highest rating review -->
     <% if @product.highest_rating_comment %>
-      <h3> Highest Rating Review </h3>
+      <h2> Highest Rating Review </h2>
       <p>
         &nbsp;
         <!-- review body -->
@@ -22,7 +22,7 @@
 
     <!-- lowest rating review -->
     <% if @product.lowest_rating_comment %>
-      <h3> Lowest Rating Review </h3>
+      <h2> Lowest Rating Review </h2>
       <p>
         &nbsp;
         <!-- review body -->
@@ -38,7 +38,7 @@
   </div><!-- /col -->
 
   <div class="col-sm-12 col-md-4">
-    <h3> All the Reviews </h3>
+    <h2> All the Reviews </h2>
     <% @comments.each do |comment| %>
       <div class="product-reviews">
 
@@ -64,7 +64,9 @@
     <% end %><!-- loop -->
 
     <!-- pagination -->
-    <%= will_paginate @comments %>
+    <div class="pagination">
+      <%= will_paginate @comments %>
+    </div>
 
   </div><!-- /col -->
 

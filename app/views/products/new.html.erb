@@ -3,8 +3,8 @@
 </header><!--/ new product-->
 
 <div class="container">
-
-  <%= link_to 'Back', products_path, class:"btn btn-default"%>
-  <%= render 'shared/form', product: @product %>
-
+  <div class="row new-product-form">
+    <%= link_to 'Back', products_path, class:"btn btn-default"%>
+    <%= render 'shared/form', product: @product %>
+  </div>
 </div><!-- /container-->

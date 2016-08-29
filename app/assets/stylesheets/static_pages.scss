@@ -101,10 +101,34 @@ li .btn-default {
   margin-left: 0;
 }
 
+/* ============================== ABOUT ======================================*/
+#about > .row {
+  margin-bottom: 7%;
+}
+
 /* ============================= THANK YOU ===================================*/
 .panel-body {
   text-align: center;
 }
+
+/* ============================ SHOW PRODUCT =================================*/
+.comment-body {
+  font-size: 80%
+}
+
+/* =========================== FORMS  ===============================*/
+
+.form {
+  margin-top: 5%;
+  margin-bottom: 20%;
+}
+
+.new-product-form,
+.edit-product-form {
+  margin-top: 3%;
+  margin-bottom: 7%;
+}
+
 
 /* ================================ FOOTER ===================================*/
 footer {
@@ -256,6 +280,10 @@ footer p.footer-links a {
     display: inline-block;
     vertical-align: middle;
     width: auto;
+  }
+
+  .col-xs-12 {
+    width:100%;
   }
 }
 

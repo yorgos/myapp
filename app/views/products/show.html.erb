@@ -35,21 +35,21 @@
         <br>
         <br>
         <!-- Stripe Checkout -->
-        <%= form_tag "/payments/create" do %>
-          <p>
-            <!-- making product_id accessible to the parameters in order to be able to access the product in the payments controller -->
-            <%= hidden_field_tag(:product_id, @product.id) %>
-            <%= render partial: "shared/stripe_checkout_button" %>
-          <p>
+        <% if user_signed_in? %>
+          <%= form_tag "/payments/create" do %>
+            <p>
+              <!-- making product_id accessible to the parameters in order to be able to access the product in the payments controller -->
+              <%= hidden_field_tag(:product_id, @product.id) %>
+              <%= render partial: "shared/stripe_checkout_button" %>
+            <p>
+          <% end %>
         <% end %>
         <br>
         <p>
+          <%= link_to 'Back', products_path, class:"btn btn-default" %>
           <%= link_to 'Edit', edit_product_path(@product), class:"btn btn-default"%>
         </p>
-        <br>
-        <p>
-          <%= link_to 'Back', products_path, class:"btn btn-default" %>
-        </p>
+
       </div><!-- /col -->
     </div><!-- /row -->
   <% end %><!-- /cache -->
