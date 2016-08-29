@@ -12,11 +12,9 @@ App.product = App.cable.subscriptions.create("ProductChannel", {
 
   // Received will be executed whenever the client receives any data from the server. So in the example of a chat, this function would always be triggered when another user sends a message
   received: function(data) {
-
     // Called when there's incoming data on the websocket for this channel
     $(".alert.alert-info").show();
-
-    $('.product-reviews-wrapper').prepend(data.comment);
+    $(".product-reviews-wrapper").prepend(data.comment);
     refreshRating();
   },
 
